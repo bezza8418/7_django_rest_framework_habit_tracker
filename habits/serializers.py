@@ -13,6 +13,7 @@ class HabitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Habit
         fields = '__all__'
+        read_only_fields = ['user']  # ← добавить эту строку
         validators = [
             validate_reward_and_linked_habit,
             validate_linked_habit_is_pleasant,
