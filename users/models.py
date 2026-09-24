@@ -47,6 +47,11 @@ class User(AbstractUser):
         null=True,
         verbose_name='Аватарка'
     )
+    telegram_chat_id = models.BigIntegerField(
+        blank=True,
+        null=True,
+        verbose_name='Telegram Chat ID'
+    )
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
