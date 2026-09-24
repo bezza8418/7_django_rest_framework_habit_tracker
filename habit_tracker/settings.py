@@ -202,5 +202,9 @@ CELERY_BEAT_SCHEDULE = {}
 
 
 DEFAULT_FROM_EMAIL = 'noreply@habit_tracker.local'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+MAILERS = {
+    'default': {
+        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+    },
+}
