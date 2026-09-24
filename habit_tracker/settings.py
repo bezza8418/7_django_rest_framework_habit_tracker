@@ -198,7 +198,12 @@ CELERY_RESULT_BACKEND = f"redis://{os.getenv('REDIS_HOST')}:{os.getenv('REDIS_PO
 CELERY_TIMEZONE = 'Europe/Moscow'
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
-CELERY_BEAT_SCHEDULE = {}
+CELERY_BEAT_SCHEDULE = {
+    'check-habits-for-reminders': {
+        'task': 'habits.tasks.check_habits_for_reminders',
+        'schedule': crontab(minute='*'),  # каждую минуту
+    },
+}
 
 
 DEFAULT_FROM_EMAIL = 'noreply@habit_tracker.local'
