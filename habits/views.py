@@ -6,12 +6,30 @@ from .paginators import HabitPagination
 
 
 @extend_schema_view(
-    list=extend_schema(summary='Список своих привычек', description='Возвращает привычки текущего пользователя с пагинацией.'),
-    create=extend_schema(summary='Создание привычки', description='Создаёт новую привычку для текущего пользователя.'),
-    retrieve=extend_schema(summary='Получение привычки', description='Возвращает одну привычку по ID.'),
-    update=extend_schema(summary='Обновление привычки', description='Полное обновление привычки.'),
-    partial_update=extend_schema(summary='Частичное обновление', description='Частичное обновление привычки.'),
-    destroy=extend_schema(summary='Удаление привычки', description='Удаляет привычку.'),
+    list=extend_schema(
+        summary='Список своих привычек',
+        description='Возвращает привычки текущего пользователя с пагинацией.',
+    ),
+    create=extend_schema(
+        summary='Создание привычки',
+        description='Создаёт новую привычку для текущего пользователя.',
+    ),
+    retrieve=extend_schema(
+        summary='Получение привычки',
+        description='Возвращает одну привычку по ID.',
+    ),
+    update=extend_schema(
+        summary='Обновление привычки',
+        description='Полное обновление привычки.',
+    ),
+    partial_update=extend_schema(
+        summary='Частичное обновление',
+        description='Частичное обновление привычки.',
+    ),
+    destroy=extend_schema(
+        summary='Удаление привычки',
+        description='Удаляет привычку.',
+    ),
 )
 class HabitViewSet(viewsets.ModelViewSet):
     """CRUD для привычек пользователя"""
@@ -27,8 +45,14 @@ class HabitViewSet(viewsets.ModelViewSet):
 
 
 @extend_schema_view(
-    list=extend_schema(summary='Список публичных привычек', description='Возвращает публичные привычки всех пользователей.'),
-    retrieve=extend_schema(summary='Получение публичной привычки', description='Возвращает одну публичную привычку по ID.'),
+    list=extend_schema(
+        summary='Список публичных привычек',
+        description='Возвращает публичные привычки всех пользователей.',
+    ),
+    retrieve=extend_schema(
+        summary='Получение публичной привычки',
+        description='Возвращает одну публичную привычку по ID.',
+    ),
 )
 class PublicHabitListView(viewsets.ReadOnlyModelViewSet):
     """Список публичных привычек (только просмотр)"""

@@ -58,4 +58,3 @@ def validate_periodicity(value):
         raise serializers.ValidationError(
             'Периодичность должна быть от 1 до 7 дней.'
         )
-    
